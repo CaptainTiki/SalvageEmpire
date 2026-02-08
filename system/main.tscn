@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cd0qjwj741yfe"]
+
+[ext_resource type="Script" uid="uid://bchoo7njaqjah" path="res://system/main.gd" id="1_gisfo"]
+[ext_resource type="Script" uid="uid://bwqlbjy0fx7df" path="res://system/menu_controller.gd" id="2_6558x"]
+[ext_resource type="Script" uid="uid://i0y58u7dw34" path="res://system/game_controller.gd" id="3_goxoi"]
+
+[node name="Main" type="Node2D" unique_id=1703998770]
+script = ExtResource("1_gisfo")
+
+[node name="MenuController" type="Node" parent="." unique_id=928220112 node_paths=PackedStringArray("menu_root", "game_controller")]
+unique_name_in_owner = true
+script = ExtResource("2_6558x")
+menu_root = NodePath("../CanvasLayer/MenuRoot")
+game_controller = NodePath("../GameController")
+
+[node name="GameController" type="Node" parent="." unique_id=720348094 node_paths=PackedStringArray("menu_controller", "game_root")]
+unique_name_in_owner = true
+script = ExtResource("3_goxoi")
+menu_controller = NodePath("../MenuController")
+game_root = NodePath("../CanvasLayer/GameRoot")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1288193129]
+
+[node name="MenuRoot" type="Control" parent="CanvasLayer" unique_id=965407692]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="GameRoot" type="Control" parent="CanvasLayer" unique_id=1881619745]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2

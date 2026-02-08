@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://tsyy6ssqwise"]
+
+[ext_resource type="Script" uid="uid://gn56jhnqweky" path="res://menus/main_menu_screen.gd" id="1_4dxmd"]
+[ext_resource type="Texture2D" uid="uid://ctae2w3cehf5r" path="res://assets/buttons/start_button.png" id="2_0husn"]
+[ext_resource type="Texture2D" uid="uid://dn4unhjpcr7bv" path="res://assets/buttons/exit_button.png" id="3_abbjk"]
+
+[sub_resource type="Gradient" id="Gradient_0husn"]
+colors = PackedColorArray(0.043039158, 0.04303915, 0.04303915, 1, 0.23031491, 0.23031494, 0.23031494, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dpr3f"]
+gradient = SubResource("Gradient_0husn")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vw2mf"]
+font_size = 42
+
+[node name="MainMenuScreen" type="Control" unique_id=1920929211]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4dxmd")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=596606781]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_dpr3f")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1911457543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=1303667569]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer" unique_id=677398770]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1484458961]
+layout_mode = 2
+text = "MainMenu"
+label_settings = SubResource("LabelSettings_vw2mf")
+
+[node name="Spacer" type="Control" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=1641059962]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="StartGameButton" type="TextureButton" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=707251783]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_0husn")
+
+[node name="Spacer2" type="Control" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=745388395]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="ExitButton" type="TextureButton" parent="MarginContainer/CenterContainer/VBoxContainer" unique_id=2104024969]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_abbjk")
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

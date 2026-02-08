@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://yx08beko0jvx"]
+
+[ext_resource type="Script" uid="uid://dwgexbclt1uni" path="res://game/ui/market_screen.gd" id="1_doh2i"]
+[ext_resource type="PackedScene" uid="uid://sybaasdpldn" path="res://game/ui/screen_menu_bar.tscn" id="2_a83l6"]
+
+[sub_resource type="Gradient" id="Gradient_i63b8"]
+colors = PackedColorArray(0.043039158, 0.04303915, 0.04303915, 1, 0.23031491, 0.23031494, 0.23031494, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pqywe"]
+gradient = SubResource("Gradient_i63b8")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iprbo"]
+font_size = 42
+
+[node name="MarketScreen" type="Control" unique_id=1853685763]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_doh2i")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=785413140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_pqywe")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1256409496]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1744271820]
+layout_mode = 2
+
+[node name="ScreenMenuBar" parent="MarginContainer/VBoxContainer" unique_id=1034205893 node_paths=PackedStringArray("owner_screen") instance=ExtResource("2_a83l6")]
+layout_mode = 2
+owner_screen = NodePath("../../..")
+
+[node name="MainScreen" type="CenterContainer" parent="MarginContainer/VBoxContainer" unique_id=1333300247]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MainScreen" unique_id=394691289]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MainScreen/VBoxContainer" unique_id=1264729091]
+layout_mode = 2
+text = "Market"
+label_settings = SubResource("LabelSettings_iprbo")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/MainScreen/VBoxContainer" unique_id=451381453]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
