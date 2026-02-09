@@ -6,12 +6,7 @@ signal DryDockSlotOpened(slot: int)
 
 @export var num_drydocks : int = 1
 
-var drydocks : Dictionary[int, Ship] = {
-	0:null,
-	1:null,
-	2:null,
-	3:null
-}
+var drydocks : Dictionary[int, Ship] = {0:null,1:null,2:null,3:null,4:null,5:null,6:null,7:null,8:null,9:null}
 
 func get_empty_drydock_slot() -> int:
 	for num in range(num_drydocks):
@@ -19,13 +14,12 @@ func get_empty_drydock_slot() -> int:
 			return num
 	return -1 #we dont have an open dock. 
 
-func get_ship_to_intake() -> Ship:
+func get_new_ship() -> Ship:
 	return Ship.new()
 
-func dock_ship_in_drydock(ship : Ship, docknum : int) -> void:
-
+func set_ship_to_drydock(ship : Ship, docknum : int) -> void:
 	DryDockSlotFilled.emit(docknum, ship)
 
-func empty_drydock(dock_number : int)-> void:
+func clear_ship_from_drydock(dock_number : int)-> void:
 	drydocks[dock_number] = null
 	DryDockSlotOpened.emit(dock_number)

@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://but1xhukt8p71" path="res://game/ui/intake_screen.gd" id="1_orgnj"]
 [ext_resource type="PackedScene" uid="uid://sybaasdpldn" path="res://game/ui/screen_menu_bar.tscn" id="2_2lydg"]
-[ext_resource type="Texture2D" uid="uid://4trg4afhuwvo" path="res://assets/buttons/process_button.png" id="2_gqqtg"]
 [ext_resource type="Texture2D" uid="uid://cyj3k6qjhxwps" path="res://assets/buttons/maint_button.png" id="3_2lydg"]
+[ext_resource type="PackedScene" uid="uid://b885n73jb2fsr" path="res://game/ui/dry_dock_slot.tscn" id="3_gqqtg"]
+[ext_resource type="Texture2D" uid="uid://qqvm6wr8myc0" path="res://assets/buttons/intake_button.png" id="4_2lydg"]
+[ext_resource type="Texture2D" uid="uid://cvcfqf5vdors8" path="res://assets/icons/alert_icon.png" id="4_yds7g"]
 
 [sub_resource type="Gradient" id="Gradient_i63b8"]
 colors = PackedColorArray(0.043039158, 0.04303915, 0.04303915, 1, 0.23031491, 0.23031494, 0.23031494, 1)
@@ -12,37 +14,6 @@ colors = PackedColorArray(0.043039158, 0.04303915, 0.04303915, 1, 0.23031491, 0.
 gradient = SubResource("Gradient_i63b8")
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
-
-[sub_resource type="Gradient" id="Gradient_2lydg"]
-colors = PackedColorArray(0.1148968, 0.11489681, 0.1148968, 1, 0.37036446, 0.3703645, 0.37036446, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_yds7g"]
-gradient = SubResource("Gradient_2lydg")
-width = 172
-height = 16
-fill_from = Vector2(0, 0.5)
-fill_to = Vector2(1, 0.5)
-
-[sub_resource type="Gradient" id="Gradient_pc27s"]
-colors = PackedColorArray(0.29555723, 0.09994327, 0, 1, 0.43678075, 0.19586635, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_npgdh"]
-gradient = SubResource("Gradient_pc27s")
-width = 172
-height = 16
-fill_from = Vector2(0, 0.5)
-fill_to = Vector2(1, 0.5)
-
-[sub_resource type="Gradient" id="Gradient_2gxao"]
-offsets = PackedFloat32Array(0.8674699, 1)
-colors = PackedColorArray(0.15127608, 0.15127608, 0.15127608, 1, 0.4351923, 0.43519226, 0.43519226, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nc0ck"]
-gradient = SubResource("Gradient_2gxao")
-width = 96
-height = 96
-fill = 2
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_1cp4l"]
 colors = PackedColorArray(0.1148968, 0.11489681, 0.1148968, 1, 0.5529556, 0.55295557, 0.55295557, 1)
@@ -104,579 +75,253 @@ owner_screen = NodePath("../../..")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1045949803]
 layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=453564775]
+[node name="DockGrid" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1330439345]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid" unique_id=453564775]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
 theme_override_constants/h_separation = 32
 columns = 2
 
-[node name="DryDockSlot" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=261067527]
+[node name="DryDockSlot" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=1678240008 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
 
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot" unique_id=546963852]
+[node name="DryDockSlot2" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=788994906 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer" unique_id=1132220313]
+[node name="DryDockSlot3" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=2112564982 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer" unique_id=2098158140]
+[node name="DryDockSlot4" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=1167691563 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
 
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer/HBoxContainer" unique_id=493506778]
+[node name="DryDockSlot5" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=1973467019 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-text = "Ship:"
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer/HBoxContainer" unique_id=945780066]
+[node name="DryDockSlot6" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=1621097051 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-size_flags_horizontal = 3
 
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1667666228]
-unique_name_in_owner = true
+[node name="DryDockSlot7" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=683885575 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-text = "Hephaestus"
 
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer/HBoxContainer" unique_id=328221040]
+[node name="DryDockSlot8" parent="MarginContainer/VBoxContainer/HBoxContainer/DockGrid/GridContainer" unique_id=2036715397 instance=ExtResource("3_gqqtg")]
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer" unique_id=725959210]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer/VBoxContainer" unique_id=1007094198]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot/HboxContainer" unique_id=2119768500]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=79141194]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2" unique_id=496664880]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer" unique_id=220283322]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer" unique_id=1712913502]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer/HBoxContainer" unique_id=715880865]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1097915568]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer/HBoxContainer" unique_id=532664688]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer/HBoxContainer" unique_id=24776843]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer" unique_id=1260393030]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer/VBoxContainer" unique_id=718539787]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot2/HboxContainer" unique_id=1131222281]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot3" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=444020418]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3" unique_id=1736238836]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer" unique_id=1083917777]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer" unique_id=2001408543]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1351364755]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1881559217]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer/HBoxContainer" unique_id=674615188]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1831105754]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer" unique_id=688980680]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer/VBoxContainer" unique_id=1115424789]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot3/HboxContainer" unique_id=1884990411]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot4" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=2101441802]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4" unique_id=1966003930]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer" unique_id=1875986206]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer" unique_id=1782304262]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1918693417]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer/HBoxContainer" unique_id=2052799911]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1648598431]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1149363361]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer" unique_id=217115264]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer/VBoxContainer" unique_id=374643420]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot4/HboxContainer" unique_id=393718189]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot5" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=2111000565]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5" unique_id=156046077]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer" unique_id=1243213775]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer" unique_id=632211965]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer/HBoxContainer" unique_id=770155532]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1304288399]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer/HBoxContainer" unique_id=543286895]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer/HBoxContainer" unique_id=911155348]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer" unique_id=1032015858]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer/VBoxContainer" unique_id=1554414590]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot5/HboxContainer" unique_id=1503276112]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot6" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=880169305]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6" unique_id=941047485]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer" unique_id=1347931242]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer" unique_id=1081504025]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer/HBoxContainer" unique_id=26872875]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer/HBoxContainer" unique_id=871245774]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1779920998]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer/HBoxContainer" unique_id=656960103]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer" unique_id=1537432955]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer/VBoxContainer" unique_id=1089880904]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot6/HboxContainer" unique_id=53877877]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot7" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1819676411]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7" unique_id=1966571100]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer" unique_id=1809074283]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer" unique_id=819350475]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer/HBoxContainer" unique_id=2121723280]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer/HBoxContainer" unique_id=978007335]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1772031231]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1929456848]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer" unique_id=1550844299]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer/VBoxContainer" unique_id=1754362773]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot7/HboxContainer" unique_id=754091962]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot8" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=276850884]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8" unique_id=1992938696]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer" unique_id=1906302175]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer" unique_id=597831454]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer/HBoxContainer" unique_id=514743597]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1973152247]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1095755142]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer/HBoxContainer" unique_id=431474752]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer" unique_id=1267302070]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer/VBoxContainer" unique_id=350561746]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot8/HboxContainer" unique_id=265386662]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot9" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1744948021]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9" unique_id=1875913195]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer" unique_id=1165821082]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer" unique_id=1043426701]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer/HBoxContainer" unique_id=30925479]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1845621208]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1291057739]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer/HBoxContainer" unique_id=561529766]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer" unique_id=1048399141]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer/VBoxContainer" unique_id=242682074]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot9/HboxContainer" unique_id=1806856039]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
-
-[node name="DryDockSlot10" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer" unique_id=1466695674]
-visible = false
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10" unique_id=1620587584]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer" unique_id=1161480419]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer" unique_id=207982756]
-layout_mode = 2
-
-[node name="Shipname_Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1210441845]
-layout_mode = 2
-text = "Ship:"
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer/HBoxContainer" unique_id=367662596]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Shipname_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer/HBoxContainer" unique_id=580431429]
-layout_mode = 2
-text = "Hephaestus"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1636569581]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer" unique_id=1881034227]
-layout_mode = 2
-max_value = 25.0
-texture_under = SubResource("GradientTexture2D_yds7g")
-texture_progress = SubResource("GradientTexture2D_npgdh")
-
-[node name="ProcessShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer/VBoxContainer" unique_id=1076579226]
-layout_mode = 2
-size_flags_horizontal = 4
-texture_normal = ExtResource("2_gqqtg")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/GridContainer/DryDockSlot10/HboxContainer" unique_id=647188777]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_nc0ck")
 
 [node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=586544312]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
 
-[node name="RightPanel" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1769409961]
+[node name="RightPanel" type="CenterContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=815449315]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Maint_Section" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel" unique_id=1175417615]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel" unique_id=1769409961]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 48
+
+[node name="InfoContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer" unique_id=1604914022]
 layout_mode = 2
 
-[node name="MaintProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/Maint_Section" unique_id=1123785201]
-layout_mode = 2
-texture_under = SubResource("GradientTexture2D_pisix")
-texture_progress = SubResource("GradientTexture2D_2lydg")
-
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/Maint_Section" unique_id=68437368]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer" unique_id=1263881923]
 layout_mode = 2
 
-[node name="MaintShipButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/Maint_Section" unique_id=786329700]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer" unique_id=1691741948]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer4" unique_id=1525666207]
+layout_mode = 2
+texture = ExtResource("4_yds7g")
+expand_mode = 2
+
+[node name="Alert_Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer4" unique_id=1146051375]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Awaiting Dockyard..."
+
+[node name="Spacer4" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer" unique_id=1593137814]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer" unique_id=1883514244]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer" unique_id=753296328]
+layout_mode = 2
+text = "Next Ship in: "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer" unique_id=31413078]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer" unique_id=558967296]
+layout_mode = 2
+text = "42"
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer" unique_id=1112306094]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer" unique_id=877838192]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer2" unique_id=302608266]
+layout_mode = 2
+text = "Total Rate:"
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer2" unique_id=2101623192]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer2" unique_id=1454644336]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer" unique_id=574384639]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer3" unique_id=622455651]
+layout_mode = 2
+text = "Time to Full : "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer3" unique_id=427712859]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/InfoContainer/VBoxContainer/HBoxContainer3" unique_id=2139552182]
+layout_mode = 2
+text = "0"
+
+[node name="IntakeContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer" unique_id=966973483]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer" unique_id=1829475146]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer" unique_id=1744489909]
+layout_mode = 2
+
+[node name="IntakeButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer" unique_id=2140907772]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_2lydg")
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer" unique_id=751898449]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer" unique_id=1746707542]
+layout_mode = 2
+text = "Selected Dock: "
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer" unique_id=20666260]
+layout_mode = 2
+text = "1"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer" unique_id=1194901968]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer2" unique_id=445955988]
+layout_mode = 2
+text = "Filled Docks : "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer2" unique_id=934504151]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer2" unique_id=402704871]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer" unique_id=832937592]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer3" unique_id=1778694381]
+layout_mode = 2
+text = "Empty Docks : "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer3" unique_id=1021738594]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/IntakeContainer/VBoxContainer/HBoxContainer3" unique_id=24785898]
+layout_mode = 2
+text = "0"
+
+[node name="Spacer4" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer" unique_id=1105376288]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MaintContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer" unique_id=1802672084]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer" unique_id=397400938]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer" unique_id=414794990]
+layout_mode = 2
+
+[node name="MaintButton" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer" unique_id=1644349594]
 layout_mode = 2
 size_flags_horizontal = 4
 texture_normal = ExtResource("3_2lydg")
 
-[node name="InfoPanel" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel" unique_id=1102625403]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer" unique_id=1120372699]
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 
-[node name="MaintTitleLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/InfoPanel" unique_id=32975325]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer" unique_id=1386176526]
 layout_mode = 2
-text = "Number of Working Tow Bots:"
+text = "Durability: "
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/InfoPanel" unique_id=381222638]
-custom_minimum_size = Vector2(128, 0)
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer" unique_id=1277232811]
+layout_mode = 2
+text = "50"
+
+[node name="MaintProgressBar" type="TextureProgressBar" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer" unique_id=234065010]
+layout_mode = 2
+texture_under = SubResource("GradientTexture2D_pisix")
+texture_progress = SubResource("GradientTexture2D_2lydg")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer" unique_id=1782243708]
 layout_mode = 2
 
-[node name="MaintValueLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/InfoPanel" unique_id=1016880494]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer2" unique_id=1148154460]
 layout_mode = 2
-text = "1"
+text = "Tow Bots Available : "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer2" unique_id=1956273576]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer2" unique_id=1442646250]
+layout_mode = 2
+text = "0"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer" unique_id=922627245]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer3" unique_id=1895409340]
+layout_mode = 2
+text = "Disabled Bots : "
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer3" unique_id=1058848053]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer/MaintContainer/VBoxContainer/HBoxContainer3" unique_id=1321503932]
+layout_mode = 2
+text = "0"
+
+[node name="Spacer2" type="HSeparator" parent="MarginContainer/VBoxContainer/HBoxContainer/RightPanel/HBoxContainer" unique_id=1809379726]
+layout_mode = 2
+size_flags_horizontal = 3

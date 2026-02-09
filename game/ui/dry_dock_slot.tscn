@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://b885n73jb2fsr"]
+
+[ext_resource type="Texture2D" uid="uid://c8vlg38ru3d18" path="res://assets/buttons/drydock_button.png" id="1_qk7jq"]
+[ext_resource type="Script" uid="uid://b58ibde0v8tg7" path="res://game/ui/dry_dock_slot.gd" id="1_wexh7"]
+
+[sub_resource type="Gradient" id="Gradient_2lydg"]
+colors = PackedColorArray(0.1148968, 0.11489681, 0.1148968, 1, 0.37036446, 0.3703645, 0.37036446, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yds7g"]
+gradient = SubResource("Gradient_2lydg")
+width = 172
+height = 16
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_pc27s"]
+colors = PackedColorArray(0.29555723, 0.09994327, 0, 1, 0.43678075, 0.19586635, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npgdh"]
+gradient = SubResource("Gradient_pc27s")
+width = 172
+height = 16
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_2gxao"]
+offsets = PackedFloat32Array(0.8674699, 1)
+colors = PackedColorArray(0.15127608, 0.15127608, 0.15127608, 1, 0.4351923, 0.43519226, 0.43519226, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nc0ck"]
+gradient = SubResource("Gradient_2gxao")
+width = 96
+height = 96
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[node name="DryDockSlot" type="PanelContainer" unique_id=788994906]
+offset_right = 304.0
+offset_bottom = 112.0
+mouse_filter = 2
+script = ExtResource("1_wexh7")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1648406767]
+layout_mode = 2
+texture_normal = ExtResource("1_qk7jq")
+stretch_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1197801998]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HboxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=25098512]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HboxContainer" unique_id=779409127]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HboxContainer/VBoxContainer" unique_id=2090350728]
+layout_mode = 2
+text = "Dry Dock 1"
+
+[node name="Spacer" type="HSeparator" parent="MarginContainer/HboxContainer/VBoxContainer" unique_id=1609475608]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HboxContainer/VBoxContainer" unique_id=852581434]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Shipname_Title" type="Label" parent="MarginContainer/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1166867172]
+layout_mode = 2
+text = "Ship:"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HboxContainer/VBoxContainer/HBoxContainer" unique_id=168305955]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Shipname_Label" type="Label" parent="MarginContainer/HboxContainer/VBoxContainer/HBoxContainer" unique_id=1565582809]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Hephaestus"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HboxContainer/VBoxContainer/HBoxContainer" unique_id=596347221]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="IntakeProgressBar" type="TextureProgressBar" parent="MarginContainer/HboxContainer/VBoxContainer" unique_id=330388913]
+layout_mode = 2
+mouse_filter = 2
+max_value = 25.0
+texture_under = SubResource("GradientTexture2D_yds7g")
+texture_progress = SubResource("GradientTexture2D_npgdh")
+
+[node name="ShipPicture" type="TextureRect" parent="MarginContainer/HboxContainer" unique_id=4091181]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_nc0ck")
