@@ -1,16 +1,9 @@
 extends GameScreen
 class_name IntakeScreen
 
-@onready var intake_progress_bar: TextureProgressBar = %IntakeProgressBar
-@onready var maint_progress_bar: TextureProgressBar = %MaintProgressBar
-@onready var maint_value_label: Label = %MaintValueLabel
-
-var stats : IntakeStats = IntakeStats.new()
-
 
 func setup(gc : GameController) -> void:
 	super(gc)
-	stats._setup()
 
 
 

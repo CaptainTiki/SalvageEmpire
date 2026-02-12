@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SalvageEmpire"
+config/name="DysonSwarm"
 run/main_scene="uid://cd0qjwj741yfe"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"

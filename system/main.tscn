@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bchoo7njaqjah" path="res://system/main.gd" id="1_gisfo"]
 [ext_resource type="Script" uid="uid://bwqlbjy0fx7df" path="res://system/menu_controller.gd" id="2_6558x"]
 [ext_resource type="Script" uid="uid://i0y58u7dw34" path="res://system/game_controller.gd" id="3_goxoi"]
+[ext_resource type="PackedScene" uid="uid://i83s4206m3ta" path="res://game/game_root.tscn" id="4_goxoi"]
 
 [node name="Main" type="Node2D" unique_id=1703998770]
 script = ExtResource("1_gisfo")
@@ -17,7 +18,7 @@ game_controller = NodePath("../GameController")
 unique_name_in_owner = true
 script = ExtResource("3_goxoi")
 menu_controller = NodePath("../MenuController")
-game_root = NodePath("../CanvasLayer/GameRoot")
+game_root = NodePath("")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1288193129]
 
@@ -32,13 +33,4 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 mouse_filter = 2
 
-[node name="GameRoot" type="Control" parent="CanvasLayer" unique_id=1881619745]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 6
-mouse_filter = 2
+[node name="GameRoot" parent="CanvasLayer" unique_id=2070154830 instance=ExtResource("4_goxoi")]

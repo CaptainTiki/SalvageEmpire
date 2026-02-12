@@ -1,18 +1,8 @@
 [gd_scene format=3 uid="uid://i83s4206m3ta"]
 
-[sub_resource type="GDScript" id="GDScript_ump4f"]
-script/source = "extends Control
-class_name GameRoot
+[ext_resource type="Script" uid="uid://bythwopv0qybw" path="res://game/game_root.gd" id="1_hup1c"]
 
-const SHIP_INTAKE_SCREEN = preload(\"uid://cgg4rv660142j\")
-
-var game_data : GameData
-
-func start_game() -> void:
-	pass
-"
-
-[node name="GameRoot" type="Control" unique_id=150893482]
+[node name="GameRoot" type="Control" unique_id=2070154830]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,4 +12,4 @@ grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 mouse_filter = 2
-script = SubResource("GDScript_ump4f")
+script = ExtResource("1_hup1c")
