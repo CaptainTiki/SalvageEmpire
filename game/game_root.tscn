@@ -1,6 +1,39 @@
 [gd_scene format=3 uid="uid://i83s4206m3ta"]
 
 [ext_resource type="Script" uid="uid://bythwopv0qybw" path="res://game/game_root.gd" id="1_hup1c"]
+[ext_resource type="PackedScene" uid="uid://gxcb0nna0e7q" path="res://ui/docks/navigation_dock.tscn" id="2_2suya"]
+[ext_resource type="PackedScene" uid="uid://dr0onl7iue5b2" path="res://ui/docks/alerts_tray.tscn" id="3_lh3ym"]
+[ext_resource type="PackedScene" uid="uid://cr037ou46jrpk" path="res://ui/docks/info_dock.tscn" id="4_bwd2a"]
+
+[sub_resource type="Gradient" id="Gradient_lh3ym"]
+colors = PackedColorArray(0.6789437, 0.6789437, 0.6789437, 1, 0.5489626, 0.5489626, 0.54896253, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bwd2a"]
+gradient = SubResource("Gradient_lh3ym")
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_46g8y"]
+offsets = PackedFloat32Array(0.12048193, 0.57228917, 0.6385542)
+colors = PackedColorArray(0, 0, 0, 1, 0.18359044, 0.18359047, 0.18359038, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h7acg"]
+gradient = SubResource("Gradient_46g8y")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5304348, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_bwd2a"]
+offsets = PackedFloat32Array(0.12048193, 0.57228917, 0.6385542)
+colors = PackedColorArray(0, 0, 0, 1, 0.18359044, 0.18359047, 0.18359038, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5sefw"]
+gradient = SubResource("Gradient_bwd2a")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5304348, 0.5)
 
 [node name="GameRoot" type="Control" unique_id=2070154830]
 layout_mode = 3
@@ -13,3 +46,231 @@ size_flags_horizontal = 6
 size_flags_vertical = 6
 mouse_filter = 2
 script = ExtResource("1_hup1c")
+
+[node name="Background" type="TextureRect" parent="." unique_id=426891051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_bwd2a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=796771563]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=239715513]
+layout_mode = 2
+
+[node name="MainDock" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=973193141]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NavigationDock" parent="MarginContainer/HBoxContainer/MainDock" unique_id=110724512 instance=ExtResource("2_2suya")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Main" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainDock" unique_id=312636700]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MiningScreen" type="PanelContainer" parent="MarginContainer/HBoxContainer/MainDock/Main" unique_id=747825557]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen" unique_id=1957454494]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer" unique_id=1515920784]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer" unique_id=368589297]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer" unique_id=45011503]
+layout_mode = 2
+
+[node name="TitleLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=266212991]
+layout_mode = 2
+text = "MINING"
+
+[node name="StateLamp" type="TextureRect" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1119834909]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_h7acg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1212344965]
+layout_mode = 2
+text = "RUN"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1994308372]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ThroughputLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=457753166]
+layout_mode = 2
+text = "Ore/s: 23"
+
+[node name="PowerLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1009593108]
+layout_mode = 2
+text = "Power 342"
+
+[node name="HeatLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=187817893]
+layout_mode = 2
+text = "Temp: 26"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1994729042]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AllOffBtn" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=921631830]
+layout_mode = 2
+text = "All
+Off"
+
+[node name="AllAutoBtn" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=116110318]
+layout_mode = 2
+text = "All
+Auto"
+
+[node name="AllStopBtn" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=234384557]
+layout_mode = 2
+text = "All
+Stop"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer" unique_id=271036491]
+layout_mode = 2
+
+[node name="DrillCard" type="PanelContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1053615683]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard" unique_id=1560928209]
+layout_mode = 2
+
+[node name="TopRowHbox" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer" unique_id=1446600998]
+layout_mode = 2
+
+[node name="StatusLamp" type="TextureRect" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/TopRowHbox" unique_id=1756972962]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_5sefw")
+stretch_mode = 3
+
+[node name="DrillnameLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/TopRowHbox" unique_id=438670060]
+layout_mode = 2
+text = "Drill: 1"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/TopRowHbox" unique_id=2092486795]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="OreRateLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/TopRowHbox" unique_id=751014645]
+layout_mode = 2
+text = "2.5 /s"
+
+[node name="ControlRow" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer" unique_id=1885936618]
+layout_mode = 2
+
+[node name="ModeGroup" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/ControlRow" unique_id=1875079892]
+layout_mode = 2
+
+[node name="OffBtn" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/ControlRow/ModeGroup" unique_id=671764470]
+layout_mode = 2
+text = "Off"
+
+[node name="AutoBtn" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/ControlRow/ModeGroup" unique_id=1715887235]
+layout_mode = 2
+text = "Auto"
+
+[node name="ManBtn" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/ControlRow/ModeGroup" unique_id=783530504]
+layout_mode = 2
+text = "Man"
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer" unique_id=1494887253]
+layout_mode = 2
+text = "Pulse"
+
+[node name="MeterRow" type="HBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer" unique_id=1064842434]
+layout_mode = 2
+
+[node name="PowerBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow" unique_id=1399141421]
+layout_mode = 2
+
+[node name="PowerTitleLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow/PowerBox" unique_id=1938482956]
+layout_mode = 2
+text = "Power"
+
+[node name="PowerValLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow/PowerBox" unique_id=1131576424]
+layout_mode = 2
+text = "22w"
+
+[node name="HeatBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow" unique_id=1714095868]
+layout_mode = 2
+
+[node name="HeatTitleLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow/HeatBox" unique_id=734104950]
+layout_mode = 2
+text = "Heat"
+
+[node name="HeatValLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow/HeatBox" unique_id=1912515026]
+layout_mode = 2
+text = "3.2°"
+
+[node name="StateBox" type="VBoxContainer" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow" unique_id=193521255]
+layout_mode = 2
+
+[node name="StateTitleLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow/StateBox" unique_id=157483774]
+layout_mode = 2
+text = "State"
+
+[node name="StateValLbl" type="Label" parent="MarginContainer/HBoxContainer/MainDock/Main/MiningScreen/MarginContainer/VBoxContainer/HBoxContainer/DrillCard/VBoxContainer/MeterRow/StateBox" unique_id=845226408]
+layout_mode = 2
+text = "Run"
+
+[node name="RightDock" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=137477906]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AlertsTray" parent="MarginContainer/HBoxContainer/RightDock" unique_id=1271170363 instance=ExtResource("3_lh3ym")]
+layout_mode = 2
+
+[node name="InfoDock" parent="MarginContainer/HBoxContainer/RightDock" unique_id=1546925409 instance=ExtResource("4_bwd2a")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/RightDock" unique_id=744233840]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/RightDock/PanelContainer" unique_id=1454673006]
+layout_mode = 2
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="WishlistBtn" type="Button" parent="MarginContainer/HBoxContainer/RightDock/PanelContainer/HBoxContainer" unique_id=956523561]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Wishlist"
+
+[node name="DiscordBtn" type="Button" parent="MarginContainer/HBoxContainer/RightDock/PanelContainer/HBoxContainer" unique_id=1932972663]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Discord"
+
+[node name="ReportBtn" type="Button" parent="MarginContainer/HBoxContainer/RightDock/PanelContainer/HBoxContainer" unique_id=1650336444]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Report"

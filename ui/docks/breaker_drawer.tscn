@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://d4t13cvrc62n"]
+
+[ext_resource type="Script" uid="uid://b1s1yc2t8qsok" path="res://ui/docks/breaker_drawer.gd" id="1_gmaik"]
+
+[node name="BreakerDrawer" type="PanelContainer" unique_id=2128195303]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 99.0
+offset_bottom = 308.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gmaik")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=497055284]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1023682414]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=605186130]
+layout_mode = 2
+text = "Breakers"
+horizontal_alignment = 1
+
+[node name="ContextLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=13512062]
+layout_mode = 2
+text = "Mining"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1154113041]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1190504101]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1213375325]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="Section" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1831141911]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section" unique_id=2074938301]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section/VBoxContainer" unique_id=1759796041]
+layout_mode = 2
+text = "Section1"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section/VBoxContainer" unique_id=506110560]
+layout_mode = 2
+mouse_filter = 2
+text = "Breaker 1"
+
+[node name="Section2" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=5575359]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section2" unique_id=893308947]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section2/VBoxContainer" unique_id=16463628]
+layout_mode = 2
+text = "Section 2"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section2/VBoxContainer" unique_id=1462909746]
+layout_mode = 2
+mouse_filter = 2
+text = "Breaker 1"
+
+[node name="Section3" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1191614781]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section3" unique_id=972673854]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section3/VBoxContainer" unique_id=1932959153]
+layout_mode = 2
+text = "Section 3"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Section3/VBoxContainer" unique_id=2138942852]
+layout_mode = 2
+mouse_filter = 2
+text = "Breaker 1"

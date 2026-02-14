@@ -14,11 +14,10 @@ script = ExtResource("2_6558x")
 menu_root = NodePath("../CanvasLayer/MenuRoot")
 game_controller = NodePath("../GameController")
 
-[node name="GameController" type="Node" parent="." unique_id=720348094 node_paths=PackedStringArray("menu_controller", "game_root")]
+[node name="GameController" type="Node" parent="." unique_id=720348094 node_paths=PackedStringArray("menu_controller")]
 unique_name_in_owner = true
 script = ExtResource("3_goxoi")
 menu_controller = NodePath("../MenuController")
-game_root = NodePath("../CanvasLayer/GameRoot")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1288193129]
 
@@ -34,4 +33,3 @@ size_flags_vertical = 6
 mouse_filter = 2
 
 [node name="GameRoot" parent="CanvasLayer" unique_id=2070154830 instance=ExtResource("4_goxoi")]
-visible = false

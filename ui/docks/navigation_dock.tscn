@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://gxcb0nna0e7q"]
+
+[ext_resource type="Script" uid="uid://bfs18fhp1n5po" path="res://ui/docks/navigation_dock.gd" id="1_h1bss"]
+[ext_resource type="Texture2D" uid="uid://bj6876ohvkggh" path="res://icon.svg" id="2_im61k"]
+
+[node name="NavigationDock" type="PanelContainer" unique_id=1877199661]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 39.0
+grow_horizontal = 2
+mouse_filter = 2
+script = ExtResource("1_h1bss")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1178313337]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=34746496]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MenuBtn" type="MenuButton" parent="MarginContainer/HBoxContainer" unique_id=1969096226]
+layout_mode = 2
+mouse_filter = 2
+text = "Menu"
+item_count = 3
+popup/item_0/text = "Settings"
+popup/item_0/icon = ExtResource("2_im61k")
+popup/item_0/id = 0
+popup/item_1/text = "Save"
+popup/item_1/icon = ExtResource("2_im61k")
+popup/item_1/id = 1
+popup/item_2/text = "Exit"
+popup/item_2/icon = ExtResource("2_im61k")
+popup/item_2/id = 2
+
+[node name="CenterSpacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=2051563223]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="StatsBox" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=424118745]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SailsOnline" type="Label" parent="MarginContainer/HBoxContainer/StatsBox" unique_id=32123269]
+layout_mode = 2
+text = "Sails: 1,681,156,156"
+
+[node name="CenterSpacer" type="Control" parent="MarginContainer/HBoxContainer/StatsBox" unique_id=435299543]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="DeltaLbl" type="Label" parent="MarginContainer/HBoxContainer/StatsBox" unique_id=311605470]
+layout_mode = 2
+text = "Delta: + 32"
+
+[node name="CenterSpacer2" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1243149566]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Nav" type="HBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1042024770]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BreakersBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=1194863444]
+layout_mode = 2
+mouse_filter = 2
+text = "Breakers"
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer/Nav" unique_id=2038888684]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="UpgradeBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=605656652]
+layout_mode = 2
+mouse_filter = 2
+text = "Upgrade"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/Nav" unique_id=417907757]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="MiningBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=1029381505]
+layout_mode = 2
+mouse_filter = 2
+text = "Mining"
+
+[node name="RefiningBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=783133199]
+layout_mode = 2
+mouse_filter = 2
+text = "Refining"
+
+[node name="AssemblyBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=291309255]
+layout_mode = 2
+mouse_filter = 2
+text = "Assembly"
+
+[node name="LaunchBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=1738465958]
+layout_mode = 2
+mouse_filter = 2
+text = "Launch"
+
+[node name="CoolingBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=553127421]
+layout_mode = 2
+mouse_filter = 2
+text = "Cooling"
+
+[node name="PowerBtn" type="Button" parent="MarginContainer/HBoxContainer/Nav" unique_id=581183357]
+layout_mode = 2
+mouse_filter = 2
+text = "Power"
