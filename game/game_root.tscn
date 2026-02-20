@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://gxcb0nna0e7q" path="res://ui/docks/navigation_dock.tscn" id="2_2suya"]
 [ext_resource type="PackedScene" uid="uid://dr0onl7iue5b2" path="res://ui/docks/alerts_tray.tscn" id="3_lh3ym"]
 [ext_resource type="PackedScene" uid="uid://cr037ou46jrpk" path="res://ui/docks/info_dock.tscn" id="4_bwd2a"]
+[ext_resource type="PackedScene" uid="uid://dcsipy8ib6g55" path="res://game/components/lamp.tscn" id="5_lh3ym"]
 
 [sub_resource type="Gradient" id="Gradient_lh3ym"]
 colors = PackedColorArray(0.6789437, 0.6789437, 0.6789437, 1, 0.5489626, 0.5489626, 0.54896253, 1)
@@ -274,3 +275,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Report"
+
+[node name="Lamp" parent="." unique_id=852079209 instance=ExtResource("5_lh3ym")]
+layout_mode = 1
+offset_left = -615.0
+offset_top = -235.0
+offset_right = -615.0
+offset_bottom = -235.0
